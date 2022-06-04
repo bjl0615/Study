@@ -3,67 +3,40 @@ package Bus;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Bus {
-	private int id; // ¹ö½ºÀÇ ID
-	private String type; // ¹ö½ºÀÇ Á¾·ù
-	private int number; // ¹ö½º ¹øÈ£
-	private int passengers; // ½Â°´
-	Route_map rm; // ³ë¼±
-	staff st;
-	List<Route_map> route; 
-	List<staff> staff;
+public class Bus /* extends Employee */{
+	enum type {
+		out_of_town,
+		downtown,
+		town,
+		tour,
+		limousine
+	}
+	type type; // ¹ö½º Á¾·ù
+	int number; // ¹ö½º ¹øÈ£
+	int id; // ¹ö½º ID
+	int passenger; // ½Â°´ ¼ö 
+	List<Route> route; // °æ·Î
 	
-	public Bus(int id , String type , int number,  int passengers) {
-		if(this.passengers < 10) {
-			this.passengers = passengers;
-			this.id = id;
+	public Bus(type type, int number , int id , int passenger , Route rt) {
 			this.type = type;
 			this.number = number;
-		}else {
-		 	System.out.println("½Â°´ ¼ö°¡ °¡µæ Ã¡½À´Ï´Ù");
-		}
+			this.id = id;
+			this.passenger = passenger;
+			route = new ArrayList<Route>();
+			route.add(rt);
 	}
 	
-	public List<Route_map> getRoute_map() {
-		return route;
-	}
-	public List<staff> getStaff() {
-		return staff;
-	}
-
-	public String setRoute_map(Route_map rm) {
-		route = new ArrayList<Route_map>();
-		route.add(rm);
-		return ("number : " + rm.getNumber() + " ID : " + rm.getId() + " °æ·Î : " + rm.getRoute());
+	public void addRoute(Route rt) {
 	}
 	
-	public String setstaff(staff st) {
-		staff = new ArrayList<staff>();
-		staff.add(st);
-		return ("ÀÌ¸§ : " + st.getName() + " ID : " + st.getID() + " Á÷À§ : " + st.getRank() + " ¿ù±Ş : " + st.getSalary());
+	
+	public void getRoute(List<Route> rt) {
+		route = rt;
 	}
-
-	public int getPassengers() {
-		return passengers;
-	}
-	public void setPassengers(int passengers) {
-		if(this.passengers < 10) {
-			this.passengers += passengers;
-		}else {
-		 	System.out.println("½Â°´ ¼ö°¡ °¡µæ Ã¡½À´Ï´Ù");
-		}
-	}
-	public int getId() {
-		
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
-	public String getType() {
+	public type getType() {
 		return type;
 	}
-	public void setType(String type) {
+	public void setType(type type) {
 		this.type = type;
 	}
 	public int getNumber() {
@@ -72,22 +45,27 @@ public class Bus {
 	public void setNumber(int number) {
 		this.number = number;
 	}
-	public Route_map getRm() {
-		return rm;
+	public int getId() {
+		return id;
 	}
-	public void setRm(Route_map rm) {
-		this.rm = rm;
+	public void setId(int id) {
+		this.id = id;
 	}
-	public List<Route_map> getRoute() {
+	public int getPassenger() {
+		return passenger;
+	}
+	public void setPassenger(int passenger) {
+		this.passenger = passenger;
+	}
+	public List<Route> getRoute() {
 		return route;
 	}
-	public void setRoute(List<Route_map> route) {
+	public void setRoute(List<Route> route) {
 		this.route = route;
 	}
 	
-	
-	
-	
-	
-	
+	@Override
+	public String toString() {
+		return "¹ö½º Å¸ÀÔ : " + type + " ¹øÈ£ : " + number + " ID : " + id + " ¼ş°´ ¼ö : " + passenger; 
+	}
 }
