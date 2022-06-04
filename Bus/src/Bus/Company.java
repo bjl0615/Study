@@ -4,54 +4,49 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Company {
-	private List<Bus> buses; // 버스(들)
-	private int ID; // 버스 회사의 고유 번호
-	private String area; // 지역
-	private String companyName; // 회사 이름 
-	private String type; // 버스 회사 타입
-	private Bus bus;
+	String area;
+	String c_name;
+	int id;
+	List<Employee> employee;
 	
-	public Company(int id , String area , String companyName , String type) {
-		this.ID = id;
+	public Company(String area, String c_name, int id) {
 		this.area = area;
-		this.companyName = companyName;
-		this.type = type;
+		this.c_name = c_name;
+		this.id = id;
+		employee = new ArrayList<Employee>();
 	}
 	
-	public List<Bus> getBuses() {
-		return buses;
+	public void addEmployee(Employee employee) {
+		this.employee.add(employee);
 	}
 	
-	public void setBuses(int id , String type , int number,  int passengers) {
-		bus = new Bus(id , type , number , passengers);
-		buses = new ArrayList<Bus>();
-		buses.add(bus);
-	}
-	
-	public int getID() {
-		return ID;
-	}
-	public void setID(int iD) {
-		ID = iD;
-	}
 	public String getArea() {
 		return area;
 	}
 	public void setArea(String area) {
 		this.area = area;
 	}
-	public String getCompanyName() {
-		return companyName;
+	public String getC_name() {
+		return c_name;
 	}
-	public void setCompanyName(String companyName) {
-		this.companyName = companyName;
+	public void setC_name(String c_name) {
+		this.c_name = c_name;
 	}
-	public String getType() {
-		return type;
+	public int getId() {
+		return id;
 	}
-	public void setType(String type) {
-		this.type = type;
+	public void setId(int id) {
+		this.id = id;
+	}
+	public List<Employee> getEmployee() {
+		return employee;
+	}
+	public void setEmployee(List<Employee> employee) {
+		this.employee = employee;
 	}
 	
-	
+	@Override
+	public String toString() {
+		return "지역 : " + area + " 회사 이름 : " + c_name + " ID : " + id;
+	}
 }
