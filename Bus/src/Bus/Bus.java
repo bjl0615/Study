@@ -1,42 +1,43 @@
 package Bus;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Bus /* extends Employee */{
-	enum type {
+	enum Bustype {
 		out_of_town,
 		downtown,
 		town,
 		tour,
 		limousine
 	}
-	type type; // 버스 종류
+	Bustype type; // 버스 종류
 	int number; // 버스 번호
 	int id; // 버스 ID
 	int passenger; // 승객 수 
 	List<Route> route; // 경로
 	
-	public Bus(type type, int number , int id , int passenger , Route rt) {
+	public Bus(Bustype type, int number , int id , int passenger , List<Route> route) {
 			this.type = type;
 			this.number = number;
 			this.id = id;
 			this.passenger = passenger;
-			route = new ArrayList<Route>();
-			route.add(rt);
+			this.route = route;
 	}
 	
-	public void addRoute(Route rt) {
-	}
-	
+//	public void addRoute(Route rt) {
+//		route.add(rt);		
+//	}
+//	
 	
 	public void getRoute(List<Route> rt) {
 		route = rt;
 	}
-	public type getType() {
+	public Bustype getType() {
 		return type;
 	}
-	public void setType(type type) {
+	public void setType(Bustype type) {
 		this.type = type;
 	}
 	public int getNumber() {
