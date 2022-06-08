@@ -4,10 +4,6 @@ public class Station /* extends Route */{
 	String name;
 	int id;
 	
-	public Station() {
-		// TODO Auto-generated constructor stub
-	}
-	
 	public Station(String name , int id) {
 		this.name = name;
 		this.id = id;
