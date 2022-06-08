@@ -1,19 +1,27 @@
 package Bus;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
-public class Company {
+public class Company{
 	String area;
 	String c_name;
 	int id;
 	List<Employee> employee;
+	List<Bus> bus;
 	
-	public Company(String area, String c_name, int id) {
+	
+	public Company(String area, String c_name, int id , List<Employee> employee , List<Bus> bus) {
 		this.area = area;
 		this.c_name = c_name;
 		this.id = id;
-		employee = new ArrayList<Employee>();
+		this.employee = employee;
+		this.bus = bus;
+	}	
+	
+	public void addBus(Bus bus) {
+		this.bus.add(bus);
 	}
 	
 	public void addEmployee(Employee employee) {
