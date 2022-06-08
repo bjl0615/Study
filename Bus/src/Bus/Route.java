@@ -6,9 +6,8 @@ import java.util.List;
 public class Route{
 	List<Station> route;
 	
-	public Route(Station st) {
-		route = new ArrayList<Station>();
-		route.add(st);
+	public Route(List<Station> rt) {
+		this.route = rt;
 	}
 	
 	public void addStation(Station st) {
